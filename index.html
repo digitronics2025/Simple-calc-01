@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Simple Calc: a small calculator with exact decimal arithmetic." />
+    <title>Simple Calc</title>
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <main class="calc" data-calculator aria-label="Simple Calc">
+      <h1 class="visually-hidden">Simple Calc</h1>
+      <section class="display" aria-label="Display">
+        <div class="display__expression" data-expression role="group" aria-label="Expression" tabindex="0"></div>
+        <div class="display__result" data-result role="group" aria-label="Result" tabindex="0">0</div>
+      </section>
+      <p class="visually-hidden" role="status" aria-live="polite" data-announcer></p>
+
+      <div class="keypad" role="group" aria-label="Keypad">
+        <button type="button" class="key key--function key--clear" data-key="clear" aria-label="Clear" aria-keyshortcuts="Escape">C</button>
+        <button type="button" class="key key--function" data-key="negate" aria-label="Change sign">±</button>
+        <button type="button" class="key key--function" data-key="backspace" aria-label="Delete last digit" aria-keyshortcuts="Backspace">⌫</button>
+        <button type="button" class="key key--operator" data-key="/" aria-label="Divide" aria-keyshortcuts="/">÷</button>
+
+        <button type="button" class="key" data-key="7">7</button>
+        <button type="button" class="key" data-key="8">8</button>
+        <button type="button" class="key" data-key="9">9</button>
+        <button type="button" class="key key--operator" data-key="*" aria-label="Multiply" aria-keyshortcuts="*">×</button>
+
+        <button type="button" class="key" data-key="4">4</button>
+        <button type="button" class="key" data-key="5">5</button>
+        <button type="button" class="key" data-key="6">6</button>
+        <button type="button" class="key key--operator" data-key="-" aria-label="Minus" aria-keyshortcuts="-">−</button>
+
+        <button type="button" class="key" data-key="1">1</button>
+        <button type="button" class="key" data-key="2">2</button>
+        <button type="button" class="key" data-key="3">3</button>
+        <button type="button" class="key key--operator" data-key="+" aria-label="Plus" aria-keyshortcuts="+">+</button>
+
+        <button type="button" class="key key--wide" data-key="0">0</button>
+        <button type="button" class="key" data-key="." aria-label="Decimal point" aria-keyshortcuts=".">.</button>
+        <button type="button" class="key key--equals" data-key="=" aria-label="Equals" aria-keyshortcuts="Enter =">=</button>
+      </div>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
