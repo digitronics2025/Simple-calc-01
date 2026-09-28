@@ -73,7 +73,11 @@ Engine keys: `'0'`–`'9'`, `'.'`, `'+' '-' '*' '/'`, `'='`, `'clear'`, `'backsp
   opening Firefox quick find, and Backspace from navigating. Ctrl, Meta and Alt
   combinations are left to the browser.
 - The result line is not a live region. A separate hidden `role="status"` element
-  announces only results, errors and clearing, not every keystroke.
+  announces only results, errors and clearing, not every keystroke. Every
+  applied key rewrites it, so it only ever holds the latest outcome: the first
+  key after an error announces the new number (for example `5`, or `0` after
+  Backspace), and any other ordinary key empties it. Keys the engine ignores
+  leave it untouched.
 - The long-number layout has three parts:
   - The result font steps down (`data-size` lg/md/sm).
   - Both lines scroll horizontally, and after each render they scroll to the end.

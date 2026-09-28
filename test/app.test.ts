@@ -94,6 +94,19 @@ describe('clicking buttons', () => {
     expect(resultEl.classList.contains('is-error')).toBe(false);
   });
 
+  it('stops announcing division by zero once input moves past it', () => {
+    click('7', '/', '0', '=');
+    expect(announcer()).toBe('Cannot divide by zero');
+    click('5');
+    expect(result()).toBe('5');
+    expect(announcer()).toBe('5');
+    click('/', '0', '=');
+    expect(announcer()).toBe('Cannot divide by zero');
+    click('backspace');
+    expect(result()).toBe('0');
+    expect(announcer()).toBe('0');
+  });
+
   it('announces results but not every digit', () => {
     click('1', '2');
     expect(announcer()).toBe('');
@@ -118,6 +131,14 @@ describe('keyboard', () => {
     type('Escape');
     expect(result()).toBe('0');
     expect(expression()).toBe('');
+  });
+
+  it('announces cleared only right after Escape', () => {
+    type('Escape');
+    expect(announcer()).toBe('cleared');
+    for (const key of ['4', '5', 'Backspace']) type(key);
+    expect(expression()).toBe('4');
+    expect(announcer()).toBe('');
   });
 
   it('prevents the browser default for handled keys only', () => {

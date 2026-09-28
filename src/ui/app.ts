@@ -49,8 +49,11 @@ export function mountCalculator(root: HTMLElement, keyboardTarget: Document | HT
     resultEl.scrollLeft = resultEl.scrollWidth;
   }
 
-  /** Announces outcomes to screen readers, not every keystroke. */
-  function announce(key: Key): void {
+  /**
+   * Announces outcomes to screen readers, not every keystroke. Every applied
+   * key rewrites the status, so an earlier outcome is never left behind.
+   */
+  function announce(key: Key, previous: CalcState): void {
     const display = getDisplay(state);
     if (display.isError) {
       announcerEl.textContent = display.result;
@@ -58,15 +61,21 @@ export function mountCalculator(root: HTMLElement, keyboardTarget: Document | HT
       announcerEl.textContent = `equals ${display.result}`;
     } else if (key === 'clear') {
       announcerEl.textContent = 'cleared';
+    } else if (previous.error !== null) {
+      // Input restarted after an error: say the new number in its place.
+      announcerEl.textContent = display.result;
+    } else {
+      announcerEl.textContent = '';
     }
   }
 
   function apply(key: Key): void {
+    const previous = state;
     const next = press(state, key);
-    if (next === state) return;
+    if (next === previous) return;
     state = next;
     render();
-    announce(key);
+    announce(key, previous);
   }
 
   function flash(key: Key): void {
