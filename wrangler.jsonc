@@ -1,0 +1,11 @@
+{
+  // Cloudflare Worker serving the built site as static assets (no server code).
+  // Released by the Control Center: it builds the commit, then runs `wrangler deploy`.
+  "name": "simple-calc",
+  "compatibility_date": "2026-09-29",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": { "enabled": true }
+}
