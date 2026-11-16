@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "repository": "digitronics2025/Simple-calc-01",
+  "github": {
+    "profiles": []
+  },
+  "cloudflare": {
+    "destinations": []
+  },
+  "requiredNames": []
+}
