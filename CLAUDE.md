@@ -45,6 +45,26 @@ build/environment/organization secrets and core-key rotation are unsupported.
 Core keys use the separate signed owner workflow. Never bypass missing consent,
 custody, scope or refusals; continue independent work and report the blocker.
 
+### End every plan with the exact autopilot paragraphs
+
+Every plan, including revised or shortened plans, MUST end with these two
+paragraphs verbatim. Before presenting any plan, check its final two paragraphs
+against this text. Do not shorten, paraphrase, indent, or add text after them.
+
+<!-- prettier-ignore-start -->
+
+Execute the entire plan end-to-end in full autopilot. Make independent decisions, always choosing the best long-term solutions for security, reliability, scalability, and maintainability.
+
+Investigate, implement, fix, test, and verify everything autonomously. Do not pause for routine questions. Seek approval only for unavoidable blockers, irreversible high-risk actions, or significant costs. Continue until fully verified, then provide a concise completion report.
+
+<!-- prettier-ignore-end -->
+
+This ending describes authorized execution; it does not start implementation,
+exit Plan mode, create a durable goal, change platform permissions, waive required
+approvals, or override safety rules. Stay in Plan mode until the host permits
+execution. Once implementation is authorized, proceed within the approved scope
+without repeated routine confirmations. Required review and quality gates still apply.
+
 ### Approve the scope once
 
 An approved implementation plan authorizes its stated routine steps. Record assumptions,
@@ -142,4 +162,4 @@ negative, failed or running AI reviews never delay merging or deployment.
 
 Conditional rules (branch model, approval, autopilot, machine-bound skills):
 [digitronics2025/claude-config](https://github.com/digitronics2025/claude-config)
-<!-- END operator-conventions sha256:4ab491ad918d -->
+<!-- END operator-conventions sha256:eca25aa55952 -->
